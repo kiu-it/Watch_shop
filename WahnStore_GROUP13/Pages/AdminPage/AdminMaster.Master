@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="WahnStore_GROUP13.Pages.AdminPage.AdminMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            padding-top: 20px;
+            color: white;
+            text-align: center;
+        }
+        .sidebar img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+        .sidebar h2 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .sidebar a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        form {
+            height: 100%;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="sidebar">
+            <img src="<%= ResolveUrl("~/Design/adminava.png") %>" alt="Admin Avatar" />
+            <h2>Hello Admin</h2>
+            <a href="Dashboard.aspx">Dashboard</a>
+            <a href="ManageProduct.aspx">Quản lý sản phẩm</a>
+            <a href="ManageBrand.aspx">Quản lý thương hiệu</a>
+            <a href="ManageCustomer.aspx">Quản lý khách hàng</a>
+            <a href="ManageOrder.aspx">Quản lý giao dịch</a>
+            <a href="Report.aspx">Thống kê</a>
+            <a href="Statistics.aspx">Doanh thu</a>
+        </div>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

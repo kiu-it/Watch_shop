@@ -1,0 +1,148 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CustomerMaster.master.cs" Inherits="WahnStore_GROUP13.Pages.CustomerPage.CustomerMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+<style>
+.container {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+    .header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: black;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .search-bar {
+        display: flex;
+        align-items: center;
+        margin-left: 10px; /* Adjusted left margin to align close to header */
+    }
+
+    .search-input {
+        padding: 10px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .search-button {
+        padding: 10px 15px;
+        background-color: #e67e22;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 5px; /* Adjusted to align close to input */
+    }
+
+    .menu-row {
+        display: flex;
+        justify-content: center;
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-left: 10px; /* Adjusted left margin to align close to search bar */
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+    }
+
+    .menu a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .menu a:hover {
+        color: #e67e22;
+    }
+
+    .menu-link {
+        padding: 10px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        transition: background-color 0.3s, border-color 0.3s;
+        color: black;
+        /* Xóa gạch chân */
+        text-decoration: none;
+    }
+
+    .menu-link:hover {
+        background-color: #e67e22;
+        border-color: #e67e22;
+        color: white;
+    }
+
+    .menu-link-logout {
+        padding: 10px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        color: #333;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        /* Xóa gạch chân */
+        text-decoration: none;
+    }
+
+    .menu-link-logout:hover {
+        background-color: #e67e22;
+        border-color: #e67e22;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+            <div class="header-row">
+                <div class="logo">
+                    Wahn Store
+                </div>
+                <div class="search-bar">
+                    <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" placeholder="Tìm kiếm sản phẩm đồng hồ"></asp:TextBox>
+                    <asp:Button ID="btnSearch" runat="server" Text="Tìm kiếm" CssClass="search-button" OnClick="btnSearch_Click" />
+                </div>
+                <div>
+                    <asp:HyperLink ID="hypLogin" runat="server" NavigateUrl="~/Pages/CustomerPage/Login.aspx" Text="Đăng nhập" Visible="false" CssClass="menu-link" />
+                    <asp:HyperLink ID="hypRegister" runat="server" NavigateUrl="~/Pages/CustomerPage/Register.aspx" Text="Đăng ký" Visible="false" CssClass="menu-link" />
+                    <asp:HyperLink ID="hypManageAccount" runat="server" NavigateUrl="~/Pages/CustomerPage/ManageAccount.aspx" Text="Quản lý tài khoản" Visible="false" CssClass="menu-link" />
+                    <asp:HyperLink ID="hypManageCart" runat="server" NavigateUrl="~/Pages/CustomerPage/CartPage.aspx" Text="Giỏ hàng" Visible="false" CssClass="menu-link" />
+                    <asp:Button ID="btnLogout" runat="server" Text="Logout" OnClick="btnLogout_Click" Visible="false" CssClass="menu-link-logout" />
+                </div>
+            </div>
+            <div class="menu-row">
+                <div class="menu">
+                    <a href="Home.aspx" class="menu-link">Trang chủ</a>
+                    <a href="Shop.aspx" class="menu-link">Cửa hàng</a>
+                    <a href="ManShop.aspx" class="menu-link">Đồng hồ nam</a>
+                    <a href="WomanShop.aspx" class="menu-link">Đồng hồ nữ</a>
+                </div>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
